@@ -1,7 +1,7 @@
 package net.skycrown.cuteassistant.base;
 
 /**
- * Created by wjd on 2017/7/22.
+ * @author skycrown
  */
 
 public interface BaseView<T> {

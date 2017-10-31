@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CuteAssistant</string>
+    <string name="account">我</string>
+    <string name="life_query">生活</string>
+    <string name="music">音乐</string>
+    <string name="photo">照片</string>
+    <string name="sport">运动</string>
 </resources>
