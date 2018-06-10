@@ -5,5 +5,7 @@ package net.skycrown.cuteassistant.base;
  */
 
 public interface BasePresenter {
-    void start();
+    void subscribe();
+
+    void unsubscribe();
 }

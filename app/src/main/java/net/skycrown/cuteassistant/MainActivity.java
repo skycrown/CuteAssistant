@@ -5,10 +5,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
-import android.widget.TextView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
-import net.skycrown.cuteassistant.account.AccountFragment;
 import net.skycrown.cuteassistant.base.BaseActivity;
 import net.skycrown.cuteassistant.base.BaseFragment;
 import net.skycrown.cuteassistant.life.LifeQueryFragment;
@@ -23,10 +26,10 @@ public class MainActivity extends BaseActivity {
     private static final int INDEX_PHOTO_PAGER = 1;
     private static final int INDEX_SPORT_PAGER = 2;
     private static final int INDEX_LIFE_QUERY_PAGER = 3;
-    private static final int INDEX_ACCOUNT_PAGER = 4;
-    TabLayout mTabLayout;
-    ViewPager mViewPager;
-    private int[] mTitleId = new int[]{R.string.music, R.string.photo, R.string.sport, R.string.life_query, R.string.account};
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
+    private DrawerLayout mDrawerLayout;
+    private int[] mTitleId = new int[]{R.string.music, R.string.photo, R.string.sport, R.string.life_query};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +40,19 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initView() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        }
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.draw_layout);
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
-
         mViewPager.setAdapter(new MainFragmentPagerAdapter(getSupportFragmentManager()));
         mTabLayout.setupWithViewPager(mViewPager);
-
-
     }
 
     private void initEvent() {
@@ -59,8 +68,6 @@ public class MainActivity extends BaseActivity {
                     mViewPager.setCurrentItem(INDEX_SPORT_PAGER);
                 } else if (tab == mTabLayout.getTabAt(INDEX_LIFE_QUERY_PAGER)) {
                     mViewPager.setCurrentItem(INDEX_LIFE_QUERY_PAGER);
-                } else if (tab == mTabLayout.getTabAt(INDEX_ACCOUNT_PAGER)) {
-                    mViewPager.setCurrentItem(INDEX_ACCOUNT_PAGER);
                 }
 
             }
@@ -99,9 +106,6 @@ public class MainActivity extends BaseActivity {
                 case INDEX_LIFE_QUERY_PAGER:
                     fragment = LifeQueryFragment.newInstance();
                     break;
-                case INDEX_ACCOUNT_PAGER:
-                    fragment = AccountFragment.newInstance();
-                    break;
                 default:
                     break;
             }
@@ -119,4 +123,16 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
 }
