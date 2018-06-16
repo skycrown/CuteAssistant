@@ -11,7 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 /**
- * Created by wjd on 2018/6/10.
+ * Created by skycrown on 2018/6/10.
  * 创建retrofit实例
  */
 

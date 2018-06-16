@@ -5,7 +5,7 @@ import android.util.Log;
 import net.skycrown.cuteassistant.BuildConfig;
 
 /**
- * Created by wjd on 2018/6/10.
+ * Created by skycrown on 2018/6/10.
  * 日志打印工具类
  */
 

@@ -3,7 +3,7 @@ package net.skycrown.cuteassistant.network.gson;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by wjd on 2018/6/10.
+ * Created by skycrown on 2018/6/10.
  * 服务器返回结果
  */
 

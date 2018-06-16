@@ -15,3 +15,5 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-keepnames class net.skycrown.cuteassistant.imageloader.CustomGlideModule
+-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
