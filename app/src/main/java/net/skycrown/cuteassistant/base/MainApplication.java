@@ -13,7 +13,7 @@ public class MainApplication extends Application{
     // 单例
     private static MainApplication sInstance;
 
-    public MainApplication getInstance() {
+    public static MainApplication getInstance() {
         if (sInstance == null) {
             sInstance = new MainApplication();
         }
