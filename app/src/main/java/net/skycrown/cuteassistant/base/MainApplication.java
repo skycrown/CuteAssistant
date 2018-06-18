@@ -11,13 +11,9 @@ import android.support.multidex.MultiDex;
 
 public class MainApplication extends Application{
     // 单例
-    private static MainApplication sInstance;
+    private static MainApplication sInstance = null;
 
     public static MainApplication getInstance() {
-        if (sInstance == null) {
-            sInstance = new MainApplication();
-        }
-
         return sInstance;
     }
 
@@ -26,6 +22,7 @@ public class MainApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+        sInstance = this;
     }
 
     @Override
